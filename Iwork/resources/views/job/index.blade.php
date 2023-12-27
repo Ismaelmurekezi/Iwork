@@ -1,7 +1,6 @@
 
-@extends('layout')
 
-@section('content')
+<x-layout>
         <div >
 
             <div class="contents">
@@ -11,20 +10,22 @@
                      recursively dumps all the public properties of any type into a human</br>
                     Dump Utils. ServiceStack.Text has extension methods which </br>
                      recursively dumps all the public properties of any type into a human  </p>
-                     <form action="#" method="GET" class="search-form">
-                    <input type="text" name="query" placeholder="Search for a job...">
-                     <button type="submit" class="btn-search">Search</button>
+
+
+                     <form action="/" method="GET" class="search-form">
+                    <input type="text" name="search" placeholder="Search for a job...">
+                     <button type="submit" class="btn-search" name="search-btn">Search</button>
                     </form>
                 </div>
                 <div class="content2">
-                    <img src="/img/Rectangle2.png" alt="groupp">
+                    <img src="/img/Rectangle2.png" alt="group">
                 </div>
                 
             </div>
             <div class="vision" id="about">
                 <div class="vision1">
                {{-- <h2>About Us</h2>  --}}
-                    <img src="/img/Group.png" alt="">
+                    <img src="/img/Group1.png" alt="">
                 </div>
                 <div class="vision2">
                     <h2>History</h2>
@@ -54,25 +55,11 @@
 
                 @unless (count($jobs)==0)   
                 @foreach ($jobs as $job)
-                
 
-                <div class="available2">
-                    <div class="av1">
-                        <h3  >   <a class=" text-darkBlue font-semibold  no-underline"  href="/jobs/{{ $job['id'] }}">{{ $job->title}}</a></h3>
-                    </div>
-                    <div class="av2">
-                        <h4>{{ $job->location}}</h4>
-                        <p>{{ $job->status}}</p>
-                    </div>
-                    <div class="av3">
-                        <h4>Posted by</h4>
-                    </div>
-                    <div class="av4">
-                        <img src="/img/ic.png" alt="">
-                        <h4>{{ $job->company }}</h4>
-                        <p>2 days ago</p>
-                    </div>
-                </div>
+          {{-- Job description card  component--}}
+                
+            <x-job-card :job="$job" /> 
+                
               
                 @endforeach
                 <a href="/alljobs"><button class="btn2b BEBE">VIEW MORE</button></a>
@@ -85,6 +72,9 @@
 
 
          </div>
+        </div>
+   
+
              </div>
            <div class="services">
               <div class="services1">
@@ -143,9 +133,7 @@
                 </div>
             </div>
             
-        </div>
-   
    
 
-        @endsection
+</x-layout>
    

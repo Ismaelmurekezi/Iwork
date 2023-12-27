@@ -6,6 +6,13 @@
         <link rel="stylesheet" href="/css/main.css">
         <title>iWork | explore available jobs</title>
         {{-- @vite('resources/css/app.css') --}}
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100&display=swap" rel="stylesheet">
+
+
     </head>
     <body>
         <div class="header">
@@ -15,6 +22,7 @@
             <div class="links">
             <a href="/">Home</a>
             <a href="/">Find Job</a>
+            <a href="/jobs/create">Post Job</a>
             {{-- <a href="/jobpost/create">Post Job</a> --}}
             <a href="#service">Services</a>
             <a href="#about">About Us</a>
@@ -37,7 +45,9 @@
             </div>
 
          
-              @yield('content')
+              {{-- @yield('content') --}}
+
+              {{ $slot }}
 
 
 
@@ -65,5 +75,7 @@
                     <p>UR-CST kigali</p></br>
                 </div>
             </div>
+
+            <x-flash-msg/>
          </body>
 </html>

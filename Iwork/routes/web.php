@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JobController;
 use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 
@@ -14,22 +15,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 
-Route::get('/', function () {
-    return view('jobs',[
 
-        'heading'=>"Latest  job listings",
-        'jobs'=>Job::all()
-        ]);
-});
+Route::get('/', [JobController::class,'index']);
 
-Route::get('/jobs/{id}', function ($id) {
-    return view('job',[
-        'job'=>Job::find($id)
+Route::get('/jobs/create', [JobController::class,'create']);
+Route::post('/jobs', [JobController::class,'store']);
 
-    ]);
-});
+//showing edit form
+
+Route::get('/jobs/{job}/edit',[JobController::class,'edit']);
+
+Route::put('/jobs/{job}',[JobController::class,'update']);
+
+//showing single list
+Route::get('/jobs/{job}',[JobController::class,'show']);
+
+
+
