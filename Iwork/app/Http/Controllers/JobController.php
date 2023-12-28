@@ -44,6 +44,10 @@ if($request->hasFile('logo')){
     $formFields['logo']=$request->file('logo')->store('logos','public');
 }
 
+//getting id of user who is currently logged in 
+$formFields['user_id']= auth()->id();
+
+//creating data in database
         Job::create( $formFields);
 
         return redirect('/')->with('message','Listing created successfully!');
@@ -81,4 +85,14 @@ if($request->hasFile('logo')){
 
         return back()->with('message','Listing updated successfully!');
     }
+
+    //Delete listing
+    public function destroy(Job $job){
+        $job->delete();
+        return redirect('/')->with('message',"Listing deleted successfully");
+    }
+    public function dashboard(){
+        return view('dashboard',['jobs'=>auth()->user()->jobs->get()]);
+    }
+
 }

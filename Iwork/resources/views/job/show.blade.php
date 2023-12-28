@@ -65,7 +65,16 @@
                       <P class="pb-4 pl-6">{{ $job->description }}</P>
              </div> 
         </div>
-<a href="/jobs/{{ $job->id }}/edit" class="text-darkBlue">Edit</a>
+     <div class="flex gap-7 mb-5">
+
+        <a href="/jobs/{{ $job->id }}/edit" class="text-darkBlue pl-9 font-semibold text-xl ">Edit</a>
+        
+        <form method="POST" action="/jobs/{{ $job->id }}">
+        @csrf
+        @method('DELETE')
+        <button class="text-red-500 pl-9 font-semibold text-xl "><i class="fa-solid fa-trash"></i>Delete  </button>
+        </form>
+     </div>
 </x-layout>
 
     

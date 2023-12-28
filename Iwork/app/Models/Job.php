@@ -9,7 +9,7 @@ class Job extends Model
 {
     use HasFactory;
 
-    protected $fillable=['title','company','status','email','location','tags','website','description'];
+    protected $fillable=['title','user_id','company','status','email','location','tags','website','description'];
 
     public function scopeFilter($query,array $filters){
 
@@ -32,7 +32,14 @@ class Job extends Model
       
            };
 
-    
+  
+
+    }
+
+    //Relationship to User
+
+    public function user(){
+      return $this->belongsTo(User::class, 'user_id');
 
     }
 }

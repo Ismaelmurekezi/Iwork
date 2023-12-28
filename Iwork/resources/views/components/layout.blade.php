@@ -22,15 +22,16 @@
             <div class="links">
             <a href="/">Home</a>
             <a href="/">Find Job</a>
-            <a href="/jobs/create">Post Job</a>
+            {{-- <a href="/jobs/create">Post Job</a> --}}
             {{-- <a href="/jobpost/create">Post Job</a> --}}
             <a href="#service">Services</a>
             <a href="#about">About Us</a>
             </div>
             @if (Route::has('login')) 
             <div class="btn">
-                <button class="btn4"><a href="/jobpost/create" >Post job</a></button> 
                 @auth
+              
+                <button class="btn4"><a href="/jobs/create" >Post job</a></button> 
                 <button class="btn1"><a href="{{ url('/dashboard') }}" >Dashboard</a></button>  
                 @else
                 <button class="btn2"><a href="{{ route('login') }}" >Log in</a></button> 
