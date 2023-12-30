@@ -91,8 +91,15 @@ if($request->hasFile('logo')){
         $job->delete();
         return redirect('/')->with('message',"Listing deleted successfully");
     }
+
+    public function alljobs() {
+        return view('job.alljobs', [
+            'jobs' => Job::latest()->filter(request(['tag','search']))->SimplePaginate(6)
+        ]);
+    }
     public function dashboard(){
-        return view('dashboard',['jobs'=>auth()->user()->jobs->get()]);
+        return view('dashboard', [
+            'jobs' =>  Job::latest()->filter(request(['tag','search']))->paginate(5)]);
     }
 
 }

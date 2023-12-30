@@ -12,7 +12,7 @@
                     <h1 class="-ml-8 mr-96 text-3xl font-bold text-[#176B87]"><a href="{{ url('/dashboard') }}">Dashboard</a></h1>
                     {{-- <span class="flex "> --}}
                     
-                        <img src="img/notification.png" alt="not-image" class="w-10 h-10 " id="notify-icon">
+                        {{-- <img src="img/notification.png" alt="not-image" class="w-10 h-10 " id="notify-icon"> --}}
                   
                 </header>
                 

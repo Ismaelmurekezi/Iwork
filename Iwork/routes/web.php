@@ -17,11 +17,13 @@ use App\Http\Controllers\ProfileController;
 */
 
 
-Route::get('/',function (){
-    return view('welcome');
-});
+// Route::get('/',function (){
+//     return view('welcome');
+// });
 
 Route::get('/', [JobController::class,'index']);
+
+Route::get('/jobs/alljobs', [JobController::class,'alljobs']);
 
 Route::get('/jobs/create', [JobController::class,'create'])->middleware('auth');
 Route::post('/jobs', [JobController::class,'store']);
@@ -38,11 +40,12 @@ Route::delete('/jobs/{job}',[JobController::class,'destroy'])->middleware('auth'
 //showing single list
 Route::get('/jobs/{job}',[JobController::class,'show']);
 
+Route::view('/alljobs',"job.alljobs ");
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', [JobController::class,'dashboard']
+)->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -2,7 +2,7 @@
    @vite('resources/css/app.css') 
 
 
-    <div class="flex m-7">
+    <div class="flex m-7 h-fit">
         <img src="/img/ic.png" alt="company logo " class="mr-6" >
         <div>
             <h1 class="text-darkBlue text-2xl font-bold">{{ $job->title }}</h1>
@@ -58,23 +58,24 @@
         
     </div>
     
-      <div class="">
-                <h1 class="text-darkBlue font-bold text-xl pt-8 pl-6">JOB DESCRIPTION</h1>
+      <div class="mb-64">
+                <h1 class="  text-darkBlue font-bold text-xl pt-1 pl-6">JOB DESCRIPTION</h1>
 
-                <P class="p-6">{{ $job->description }}</P>
-                      <P class="pb-4 pl-6">{{ $job->description }}</P>
+                <P class="pl-5 pt-4  w-[90rem] h-96 ml-6 mt-3 overflow-hidden border-2 border-slate-300 rounded-md">{{ $job->description }}</P>
+                 
              </div> 
         </div>
-     <div class="flex gap-7 mb-5">
-
-        <a href="/jobs/{{ $job->id }}/edit" class="text-darkBlue pl-9 font-semibold text-xl ">Edit</a>
+     {{-- <div class="flex gap-7  h-16 py-3  pl-6 mb-64">
+     
+        <a href="/jobs/{{ $job->id }}/edit" class="text-white bg-darkBlue font-semibold text-xl border-2 flex justify-center items-center w-36 h-10 rounded-md">Edit</a>
         
         <form method="POST" action="/jobs/{{ $job->id }}">
         @csrf
         @method('DELETE')
-        <button class="text-red-500 pl-9 font-semibold text-xl "><i class="fa-solid fa-trash"></i>Delete  </button>
+        <button class="text-white bg-red-600 font-semibold text-xl border-2 border-red-600 flex items-center  justify-center w-36 h-10 rounded-md  "><i class="fa-solid fa-trash"></i>Delete  </button>
+     
         </form>
-     </div>
+     </div> --}}
 </x-layout>
 
     

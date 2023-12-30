@@ -1,6 +1,7 @@
 
 
 <x-layout>
+ 
         <div >
 
             <div class="contents">
@@ -62,7 +63,7 @@
                 
               
                 @endforeach
-                <a href="/alljobs"><button class="btn2b BEBE">VIEW MORE</button></a>
+                <a href="/jobs/alljobs"><button class="btn2b BEBE">VIEW MORE</button></a>
                 @else
                 
                 <p >No jobs list found</p>

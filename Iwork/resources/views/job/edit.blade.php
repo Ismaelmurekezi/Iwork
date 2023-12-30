@@ -112,10 +112,10 @@
    </div>
 
    <div class="mb-6">
-     <input type="submit" class="w-full font-bold text-white border-2 bg-lightBlue rounded-xl py-2 px-4 hover:bg-blue-400" value="Post"/>
+     <input type="submit" class="w-full font-bold text-white border-2 bg-lightBlue rounded-xl py-2 px-4 hover:bg-blue-400" value="Update"/>
  
      <button class="w-full mt-3 font-bold border-lightBlue border-2 bg-white rounded-xl py-2 px-4  hover:bg-blue-400 hover:border-blue-400">
-       <a href="/" class=" text-lightBlue ml-4 "> Back </a>
+       <a href="/dashboard" class=" text-lightBlue ml-4 "> Back </a>
      </button>
 
 
