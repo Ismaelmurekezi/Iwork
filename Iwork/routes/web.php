@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
 use App\Models\Job;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Application;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,34 +19,48 @@ use App\Http\Controllers\ProfileController;
 */
 
 
-// Route::get('/',function (){
-//     return view('welcome');
-// });
+//Routes for Job apllication
 
-Route::get('/', [JobController::class,'index']);
+Route::get('/applications', [ApplicationController::class, 'index']);
 
-Route::get('/jobs/alljobs', [JobController::class,'alljobs']);
+Route::get('/application/create', [ApplicationController::class, 'create']);
+Route::post('/application', [ApplicationController::class, 'store']);
+Route::get('/application/{application}/edit', [ApplicationController::class, 'edit']);
+Route::put('/application/{application}', [ApplicationController::class, 'update']);
+Route::get('/application/{application}', [ApplicationController::class, 'show']);
+Route::delete('/application/{application}', [ApplicationController::class, 'destroy']);
 
-Route::get('/jobs/create', [JobController::class,'create'])->middleware('auth');
-Route::post('/jobs', [JobController::class,'store']);
+
+
+
+//Routes for Job posting
+
+Route::get('/', [JobController::class, 'index']);
+
+Route::get('/jobs/alljobs', [JobController::class, 'alljobs']);
+
+Route::get('/jobs/create', [JobController::class, 'create'])->middleware('auth');
+Route::post('/jobs', [JobController::class, 'store']);
 
 //showing edit form
 
-Route::get('/jobs/{job}/edit',[JobController::class,'edit'])->middleware('auth');
+Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])->middleware('auth');
 
-Route::put('/jobs/{job}',[JobController::class,'update'])->middleware('auth');
+Route::put('/jobs/{job}', [JobController::class, 'update'])->middleware('auth');
 
 //delete job list
-Route::delete('/jobs/{job}',[JobController::class,'destroy'])->middleware('auth');
+Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware('auth');
 
 //showing single list
-Route::get('/jobs/{job}',[JobController::class,'show']);
+Route::get('/jobs/{job}', [JobController::class, 'show']);
 
-Route::view('/alljobs',"job.alljobs ");
+Route::view('/alljobs', "job.alljobs ");
 
 
 
-Route::get('/dashboard', [JobController::class,'dashboard']
+Route::get(
+    '/dashboard',
+    [JobController::class, 'dashboard']
 )->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -53,4 +69,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -18,6 +18,12 @@ export default {
                 'lightBlue': '#00A9FF',
                 'darkBlue': '#176B87'
               },
+              width:{
+                'buttonWidth':600
+              },
+              height:{
+                    'primaryHeight':40
+              }
 
         },
     },

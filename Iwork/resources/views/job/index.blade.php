@@ -42,6 +42,7 @@
                         recursively dumps all the public properties of any type into a human .
                         </p><br><br>
                         <button class="btn2b">OBJECTIVE</button>
+                       
                 </div>
             </div>
 
@@ -63,7 +64,7 @@
                 
               
                 @endforeach
-                <a href="/jobs/alljobs"><button class="btn2b BEBE">VIEW MORE</button></a>
+                <a href="/jobs/alljobs"><button class="btn2b view ">VIEW MORE</button></a>
                 @else
                 
                 <p >No jobs list found</p>

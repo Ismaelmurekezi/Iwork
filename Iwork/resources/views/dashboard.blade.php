@@ -2,9 +2,7 @@
   {{-- @vite('resources/css/app.css')  --}}
 
     <x-slot name="header">
-        {{-- <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2> --}}
+    
     </x-slot>
 
             
@@ -32,7 +30,7 @@
               </span>
               <span class="flex flex-row text-xl ml-2 mt-3 gap-3 mb-3">
                 <img src="./img/application-icon.png" alt="" class="w-6  h-6  items-center mt-1">
-                <p class="font-medium    pl-2 text-gray-600"><a href="">Application</a></p>
+                <p class="font-medium    pl-2 text-gray-600 active:bg-lightBlue"><a href="/applications">Application</a></p>
               </span>
               <span class="flex flex-row text-xl ml-2 mt-3 gap-3 mb-3">
                 <img src="./img/schedule-icon.png" alt="" class="w-6  h-6  items-center mt-1">
@@ -43,18 +41,18 @@
              
           
 
-            <div class="flex ml-32 mt-6 max-h-[40vh] max-w-fit relative font-lg gap-7 text-white   ">
+            <div class="flex ml-32 -mt-3 max-h-[40vh] max-w-fit relative font-lg gap-7 text-white   ">
                 <div class="flex gap-28 w-64 h-28 bg-[#30EBDC] m-4 relative   border-slate-400 rounded-2xl ">
                   <p class="w-12 font-medium text-xl pl-3 pt-2 whitespace-nowrap">Job Application</p>
-                  <p class="absolute right-3 bottom-2 ">23</p>
+                  <p class="absolute right-3 bottom-2 text-xl">23</p>
                 </div>
                 <div class="flex gap-28 w-64 h-28 bg-[#1CED7C] m-4 relative   border-slate-400 rounded-2xl ">
                   <p class="w-12 font-medium text-xl pl-3 pt-2 whitespace-nowrap">Job Post</p>
-                  <p class="absolute right-3 bottom-2 ">23</p>
+                  <p class="absolute right-3 bottom-2 font-bold text-xl ">{{ sizeof($jobs) }}</p>
                 </div>
                 <div class="flex gap-28 w-64 h-28 bg-[#D0004B] m-4 relative   border-slate-400 rounded-2xl ">
                   <p class="w-12 font-medium text-xl pl-3 pt-2 whitespace-nowrap">Exam Schedule</p>
-                  <p class="absolute right-3 bottom-2 ">23</p>
+                  <p class="absolute right-3 bottom-2  text-xl">23</p>
                 </div> 
 
                 
@@ -62,11 +60,11 @@
 
                     <div class="flex gap-28 w-64 h-28 bg-lightBlue m-4 relative   border-slate-400 rounded-2xl ">
                       <p class="w-12 font-medium text-xl pl-3 pt-2 whitespace-nowrap">Employer</p>
-                      <p class="absolute right-3 bottom-2 ">23</p>
+                      <p class="absolute right-3 bottom-2 text-xl">23</p>
                     </div>
                     <div class="flex gap-28 w-64 h-28 bg-darkBlue m-4 relative   border-slate-400 rounded-2xl ">
                       <p class="w-12 font-medium text-xl pl-3 pt-2 whitespace-nowrap">Employee</p>
-                      <p class="absolute right-3 bottom-2 ">23</p>
+                      <p class="absolute right-3 bottom-2 text-xl">23</p>
                     </div> 
                 </div>
                 
@@ -75,9 +73,9 @@
 
             
 
-            <div class=" flex  max-w-sm flex-col  max-h-96 whitespace-nowrap gap-8 ml-20 mt-3  rounded-2xl shadow-lg">
+            <div class=" flex pl-10 pr-20 flex-col  max-h-96 whitespace-nowrap gap-7 ml-10  mt-0  rounded-2xl shadow-lg border-slate-200 border-2 ">
               <h3 class=" pt-3 font-bold text-lg pl-3 text-darkBlue">UPDATES</h3>
-          <div class="flex gap-5  ml-3 max-w-md">
+          <div class="flex gap-5  ml-3 max-w-md ">
             <img src="/img/profileImage.jpeg" class="h-14 w-14 rounded-full">
             <span class=" w-36 "><p class="font-medium">Marcel ISHIMWE</p> has applied social media expert position  </span>
           </div>
@@ -156,7 +154,7 @@
                     {{ $job->company }}
                 </td>
                 <td class="px-6 py-4 border-slate-200 border-2">
-                    {{ $job->status }}
+                    {{ $job->status }} 
                 </td>
                 <td class="px-6 py-4 border-slate-200 border-2">
                     {{ $job->location }}
@@ -168,7 +166,7 @@
                 {{ $job->tags }}
                 </td>
                 <td class="px-6 py-4 border-slate-200 border-2 ">
-                    {{ $job->website }}
+                    {{ $job->website }}      
                 </td>
     
                 <td class="flex px-6 py-4 border-slate-200 border-t-2">
@@ -186,7 +184,7 @@
               @else
               <tr class="border-gray-300">
                 <td class="px-4 border-t border-b border-gray-300 text-lg">
-                  <p class="text-center">No Listings Found</p>
+                  <p class="text-center">No Job Listings Found</p>
                 </td>
               </tr>
               @endunless
@@ -199,55 +197,6 @@
      </div>
 </div>
 
-
-          {{-- <table class="w-full h-10  rounded-sm border-2 border-black">
-            <tbody class="border-2 border-black h-10 ">
-                <tr  class="bg-lightBlue  border-2 border-black h-10 ">
-                    <th class="px-2 gap-1 border-2 border-black  h-10  ">ID</th>
-                    <th class="px-2 gap-1 border-2 border-black" >Job title</th>
-                    <th class="px-2 gap-1 border-2 border-black">company</th>
-                    <th class="px-2 gap-1 border-2 border-black">Job status</th>
-                    <th class="px-2 gap-1 border-2 border-black">location</th>
-                    <th class="px-2 gap-1 border-2 border-black">email</th>
-                    <th class="px-2 gap-1 border-2 border-black">tags</th>
-                    <th class="px-2 gap-1 border-2 border-black ">website</th>
-                    <th class="px-2 gap-1 border-2 border-black ">description</th>
-                    <th class="px-2 gap-1 border-2 border-black ">operations</th>
-                  </tr>
-              @unless($jobs->isEmpty())
-              @foreach($jobs as $job)
-
-              <tr class="border-gray-300 py-[-20px] ">
-              
-                <td class="px-2 gap-1 border-2 border-black max-w-3 h-2 overflow-hidden ">{{ $job->id  }}</td>
-                <td class="px-2 gap-1 border-2 border-black max-w-3 h-2 overflow-hidden ">{{ $job->title }}s</td>
-                <td class="px-2 gap-1 border-2 border-black max-w-3 h-2 overflow-hidden ">{{ $job->company }}</td> 
-                <td class="px-2 gap-1 border-2 border-black max-w-3 h-2 overflow-hidden ">{{ $job->status }}</td>
-                <td class="px-2 gap-1 border-2 border-black max-w-3 h-2 overflow-hidden ">{{ $job->location }}</td>
-                <td class="px-2 gap-1 border-2 border-black max-w-3 h-2 overflow-hidden ">{{ $job->email }}</td>
-                <td class="px-2 gap-1 border-2 border-black max-w-3 h-2 overflow-hidden ">{{ $job->tags }}</td>
-                <td class="px-2 gap-1 border-2 border-black max-w-3 h-2 overflow-hidden">{{ $job->website }}</td>
-                <td class="px-2 gap-1 border-2 border-black max-w-3  overflow-hidden  ">{{ $job->description }}</td>
-
-                <td class="px-2 gap-1 border-2 border-black text-lg">
-                  <form method="POST" action="/listings/{{$job->id}}">
-                    @csrf
-                    @method('DELETE')
-                    <button class="text-red-500"><i class="fa-solid fa-trash"></i> Delete</button>
-                  </form>
-                </td>
-              </tr>
-              @endforeach
-              @else
-              <tr class="border-gray-300">
-                <td class="px-4 border-t border-b border-gray-300 text-lg">
-                  <p class="text-center">No Listings Found</p>
-                </td>
-              </tr>
-              @endunless
-      
-            </tbody>
-          </table> --}}
         
                   
         </div>

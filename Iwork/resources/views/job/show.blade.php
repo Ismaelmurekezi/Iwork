@@ -27,6 +27,7 @@
              </div>
              <div>
                 <span class="font-semibold  text-lg">Deadline</span> : <span>2023/11/23   12:23 pm</span>
+      
              </div>
             
              <div class="">
@@ -41,13 +42,13 @@
              <h3 class="font-semibold pt-4 text-base text-darkBlue">CONTACT US</h3>
              <div class="">
                 <div class="pb-1">
-                    <img src="" alt=""> : <span>{{ $job->email }}</span>
+                   <span>{{ $job->email }}</span>
                  </div>
                  <div class="pb-1">
-                    <img src="" alt="">: <span>+2507387857</span>
+                    <span>+2507387857</span>
                  </div>
                  <div class="pb-1">
-                    <img src="" alt=""> : <span>{{ $job->location }}</span>
+                   <span>{{ $job->location }}</span>
                  </div>
              </div>
 
@@ -59,11 +60,14 @@
     </div>
     
       <div class="mb-64">
+    
                 <h1 class="  text-darkBlue font-bold text-xl pt-1 pl-6">JOB DESCRIPTION</h1>
 
                 <P class="pl-5 pt-4  w-[90rem] h-96 ml-6 mt-3 overflow-hidden border-2 border-slate-300 rounded-md">{{ $job->description }}</P>
                  
+                <button class="text-white font-bold text-xl ml-80 bg-lightBlue px-80 py-3 rounded-lg mt-4">  <a href="/application/create">Apply</a> </button>
              </div> 
+
         </div>
      {{-- <div class="flex gap-7  h-16 py-3  pl-6 mb-64">
      

@@ -17,13 +17,11 @@
     <body>
         <div class="header">
             <div class="logo">
-                <h1>iWork</h1>
+           <img  src={{ asset('./img/logoog.jpeg') }}  alt="" width="70" height="70">
             </div>
             <div class="links">
             <a href="/">Home</a>
-            <a href="/">Find Job</a>
-            {{-- <a href="/jobs/create">Post Job</a> --}}
-            {{-- <a href="/jobpost/create">Post Job</a> --}}
+            <a href="/application/create">Find Job</a>
             <a href="#service">Services</a>
             <a href="#about">About Us</a>
             </div>
@@ -54,7 +52,8 @@
 
             <div class="footer">
                 <div class="footer1">
-                    <h2>iWork</h2></br></br>
+                    <img src={{ asset('./img/logoog.jpeg') }} alt="" width="70" height="70">
+                </br></br>
                     <p>Dump Utils. ServiceStack.Text has extension
                    ServiceStack properties of any type into a human .</p>
                 </div>

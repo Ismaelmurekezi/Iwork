@@ -10,6 +10,7 @@
     <div class="mb-6">
       <label for="company" class="inline-block text-lg mb-2">Company Name</label>
       <input type="text" class="border border-gray-400  rounded-lg p-2 w-full" name="company"
+      placeholder="Enter company name"
         value="{{old('company')}}" />
 
       @error('company')
@@ -20,7 +21,7 @@
     <div class="mb-6">
       <label for="title" class="inline-block text-lg mb-2">Job Title</label>
       <input type="text" class="border border-gray-400  rounded-lg p-2 w-full" name="title"
-        placeholder="Example: Senior Laravel Developer" value="{{old('title')}}" />
+        placeholder="Enter job title" value="{{old('title')}}" />
 
       @error('title')
       <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -30,7 +31,7 @@
     <div class="mb-6">
         <label for="title" class="inline-block text-lg mb-2">Job status</label>
         <input type="text" class="border border-gray-400  rounded-lg p-2 w-full" name="status"
-          placeholder="Example: Senior Laravel Developer" value="{{old('title')}}" />
+          placeholder="Enter job status" value="{{old('title')}}" />
   
         @error('status')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -40,7 +41,7 @@
     <div class="mb-6">
       <label for="location" class="inline-block text-lg mb-2">Job Location</label>
       <input type="text" class="border border-gray-400  rounded-lg p-2 w-full" name="location"
-        placeholder="Example: Remote, Boston MA, etc" value="{{old('location')}}" />
+        placeholder="location" value="{{old('location')}}" />
 
       @error('location')
       <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -74,7 +75,7 @@
         Tags (Comma Separated)
       </label>
       <input type="text" class="border border-gray-400  rounded-lg p-2 w-full" name="tags"
-        placeholder="Example: Laravel, Backend, Postgres, etc" value="{{old('tags')}}" />
+        placeholder="Comma separated tags" value="{{old('tags')}}" />
 
       @error('tags')
       <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -96,7 +97,7 @@
       <label for="description" class="inline-block text-lg mb-2">
         Job Description
       </label>
-      <textarea class="border border-gray-400  rounded-lg p-2 w-full" name="description" rows="10"
+      <textarea class="border border-gray-400  rounded-lg  p-2 w-full" name="description" rows="10"
         placeholder="Include tasks, requirements, salary, etc">{{old('description')}}</textarea>
 
       @error('description')
