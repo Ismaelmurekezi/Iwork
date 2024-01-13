@@ -109,7 +109,8 @@
                       {{ $application->empname }}
                   </td>
                   <td class="px-6 py-2 border-slate-200 border-2">
-                      {{ $application->age }}
+                      {{-- {{ $application->age }} --}}
+                      {{ $application->files }}
                   </td>
                   <td class="px-6 py-2 border-slate-200 border-2">
                     Gender 

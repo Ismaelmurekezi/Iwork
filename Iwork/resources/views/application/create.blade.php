@@ -19,6 +19,7 @@
      @enderror
    </div>
 
+
    <div class="mb-6">
        <label for="title" class="inline-block text-lg mb-2">Age</label>
        <input type="number" class="border border-gray-400  rounded-lg p-2 w-full" name="age"
@@ -73,16 +74,16 @@ Skills (Comma Separated)
      @enderror
    </div>
 
-   {{-- <div class="mb-6">
-     <label for="logo" class="inline-block text-lg mb-2">
+   <div class="mb-6">
+     <label for="files" class="inline-block text-lg mb-2">
     Qualification/CV etc
      </label>
-     <input type="file" class="border border-gray-400  rounded-lg p-2 w-full" name="logo" value="{{old('log')}}"/>
+     <input type="file" class="border border-gray-400  rounded-lg p-2 w-full" name="files" value="{{old('files')}}"/>
 
-     @error('logo')
+     @error('files')
      <p class="text-red-500 text-xs mt-1">{{$message}}</p>
      @enderror
-   </div> --}}
+   </div>
 
    <div class="mb-6  ">
      <input type="submit" class="w-full mt-7 font-bold text-white border-2 bg-lightBlue rounded-xl py-2 px-4 hover:bg-blue-400" value="Apply"/>

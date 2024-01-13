@@ -14,7 +14,7 @@
               <h2 class="text-3xl font-bold pb-6  pl-10 border-b-2 text-darkBlue "><a href="/">iWork</a></h2>
               <div class=" flex flex-row  text-xl ml-2 mt-7 gap-3  mb-3">
                 <img src="./img/dashboard.png" alt="" class="w-6  h-6 items-center mt-1">
-                <p class="font-medium   text-lightBlue  pl-2" ><a href="">Dashboard</a></p>
+                <p class="font-medium   text-lightBlue  pl-2" ><a href="{{ url('/dashboard') }}">Dashboard</a></p>
               </div>
               <span class="flex flex-row text-xl ml-2 mt-3 gap-3 mb-3">
                 <img src="./img/users-icons.png" alt=""  class="w-6  h-6  items-center mt-1">

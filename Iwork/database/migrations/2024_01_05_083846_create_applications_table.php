@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('email');
             $table->string('skills');
             $table->string('telephone');
-            // $table->string('telephone');
+            $table->string('files');
             $table->timestamps();
         });
 
-        ['empname', 'age', 'location', 'email', 'skills', 'telephone'];
+        ['empname', 'age', 'location', 'email', 'skills', 'files', 'telephone'];
     }
 
     /**

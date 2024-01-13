@@ -37,6 +37,9 @@ class ApplicationController extends Controller
             'skills' => 'required',
             'telephone' => 'required'
         ]);
+        if ($request->hasFile('files')) {
+            $formdata['files'] = $request->file('files')->store('files', 'local');
+        }
 
         Application::create($formdata);
 
@@ -51,7 +54,7 @@ class ApplicationController extends Controller
     public function update(Request $request, Application $application)
     {
 
-        $formFields = $request->validate(
+        $formdata = $request->validate(
             [
                 'empname' => 'required',
                 'age' => ['required'],
@@ -65,11 +68,11 @@ class ApplicationController extends Controller
             ]
         );
 
-        // if ($request->hasFile('logo')) {
-        //     $formFields['logo'] = $request->file('logo')->store('logos', 'public');
-        // }
+        if ($request->hasFile('files')) {
+            $formdata['files'] = $request->file('files')->store('files', 'local');
+        }
 
-        $application->update($formFields);
+        $application->update($formdata);
 
         return back()->with('message', 'Listing updated successfully!');
     }

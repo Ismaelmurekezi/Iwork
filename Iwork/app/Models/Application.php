@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Application extends Model
 {
     use HasFactory;
-    protected $fillable = ['empname', 'age', 'location', 'email', 'skills', 'telephone'];
+    protected $fillable = ['empname', 'age', 'location', 'email', 'skills', 'files', 'telephone'];
     // public function scopeFilter($)
 }

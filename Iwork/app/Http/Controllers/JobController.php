@@ -2,14 +2,38 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Job;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
     public function index()
     {
+
+
+        if (Auth::id()) {
+
+            $usertype = Auth()->user()->usertype;
+            if ($usertype == 'user') {
+
+                // return view('jobpost.index');
+                //   dd($jobs);
+                return view('job.index', [
+                    'jobs' => Job::latest()->filter(request(['tag', 'search']))->SimplePaginate(8)
+                ]);
+            } else if ($usertype == 'admin') {
+
+                return view('dashboard', [
+                    'jobs' =>  Job::latest()->filter(request(['tag', 'search']))->SimplePaginate(5)
+                ]);
+            } else {
+                return redirect()->back();
+            }
+        }
+
 
 
         return view('job.index', [
