@@ -17,6 +17,11 @@ return new class extends Migration
             $table->string('age');
             $table->string('location');
             $table->string('email');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
             $table->string('skills');
             $table->string('telephone');
             $table->string('files');

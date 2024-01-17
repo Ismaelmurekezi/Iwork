@@ -49,6 +49,7 @@
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
+        
 
             @if (session('status') === 'profile-updated')
                 <p
@@ -56,9 +57,10 @@
                     x-show="show"
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600"
-                >{{ __('Saved.') }}</p>
+                    class="fixed top-7 left-1/2 transform bg-success  -translate-x-1/2 bg-laravel text-white px-48 py-3 rounded-md"
+                >{{ __('Account name is changed.') }}</p>
             @endif
+
         </div>
     </form>
 </section>

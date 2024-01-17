@@ -16,7 +16,8 @@ export default {
             },
             colors: {
                 'lightBlue': '#00A9FF',
-                'darkBlue': '#176B87'
+                'darkBlue': '#176B87',
+                'success':'#4BB543'
               },
               width:{
                 'buttonWidth':600

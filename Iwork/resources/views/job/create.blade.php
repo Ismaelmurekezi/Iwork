@@ -3,6 +3,9 @@
 
  <x-formstyle class="p-10 max-w-lg mx-auto mt-24  ">
     <header class="text-center">
+      @if (Session::has('successMessage'))
+          <div  class="fixed top-10 left-1/2 transform bg-red-500  -translate-x-1/2 bg-laravel text-white px-48 py-3">{{ Session::get('successMessage') }}</div>
+      @endif
       <h2 class="text-2xl font-bold text-darkBlue uppercase mb-1">CREATE JOB</h2>
     </header>
 <form action="/jobs"  method="POST" enctype="multipart/form-data">

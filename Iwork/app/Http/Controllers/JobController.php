@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Job;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use illuminate\Support\Facades\Auth;
@@ -17,16 +17,21 @@ class JobController extends Controller
         if (Auth::id()) {
 
             $usertype = Auth()->user()->usertype;
-            if ($usertype == 'user') {
+            if ($usertype == 0) {
 
                 // return view('jobpost.index');
                 //   dd($jobs);
                 return view('job.index', [
                     'jobs' => Job::latest()->filter(request(['tag', 'search']))->SimplePaginate(8)
                 ]);
-            } else if ($usertype == 'admin') {
+            } else if ($usertype == 1) {
 
                 return view('dashboard', [
+                    'jobs' =>  Job::latest()->filter(request(['tag', 'search']))->SimplePaginate(5)
+                ]);
+            } else if ($usertype == 2) {
+
+                return view('employerdashboard', [
                     'jobs' =>  Job::latest()->filter(request(['tag', 'search']))->SimplePaginate(5)
                 ]);
             } else {
@@ -65,6 +70,7 @@ class JobController extends Controller
                 'tags' => 'required',
                 'description' => 'required'
 
+
             ]
         );
 
@@ -78,7 +84,7 @@ class JobController extends Controller
         //creating data in database
         Job::create($formFields);
 
-        return redirect('/')->with('message', 'Listing created successfully!');
+        return redirect('/')->with('successMessage', 'Job created successfully!');
     }
 
     //show edit form
@@ -119,7 +125,7 @@ class JobController extends Controller
 
         $job->update($formFields);
 
-        return back()->with('message', 'Listing updated successfully!');
+        return back()->with('successMessage', 'Job updated successfully!');
     }
 
     //Delete listing
@@ -133,18 +139,42 @@ class JobController extends Controller
 
 
         $job->delete();
-        return redirect('/')->with('message', "Listing deleted successfully");
+        return redirect('/')->with('ErrorMessage', "Job is Deleted");
     }
+
+
+
+
 
     public function alljobs()
     {
         return view('job.alljobs', [
-            'jobs' => Job::latest()->filter(request(['tag', 'search']))->SimplePaginate(6)
+            'jobs' => Job::latest()->filter(request(['tag', 'search']))->SimplePaginate(8)
         ]);
     }
+
+
+
+
     public function dashboard()
     {
         return view('dashboard', [
+            'jobs' =>  Job::latest()->filter(request(['tag', 'search']))->paginate(5)
+        ]);
+    }
+
+    public function employerdashboard()
+    {
+
+        return view('employerdashboard', [
+            'jobs' =>  Job::latest()->filter(request(['tag', 'search']))->paginate(5)
+        ]);
+    }
+
+    public function employers()
+    {
+
+        return view('Users.employers', [
             'jobs' =>  Job::latest()->filter(request(['tag', 'search']))->paginate(5)
         ]);
     }

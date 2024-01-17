@@ -40,10 +40,12 @@ class ApplicationController extends Controller
         if ($request->hasFile('files')) {
             $formdata['files'] = $request->file('files')->store('files', 'local');
         }
+        $formdata['user_id'] = auth()->id();
+
 
         Application::create($formdata);
 
-        return redirect('/');
+        return redirect('/')->with('successMessage', 'Application  successful!');
     }
     public function edit(Application $application)
     {
@@ -81,5 +83,14 @@ class ApplicationController extends Controller
     {
         $application->delete();
         return redirect('/')->with('message', "Listing deleted successfully");
+    }
+
+
+    public function employees()
+    {
+
+        return view('Users.employee', [
+            'applications' =>  Application::all()
+        ]);
     }
 }
